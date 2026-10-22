@@ -1,0 +1,38 @@
+name: wizard_odi_migration
+version: "1.0.0"
+config-version: 2
+
+# Sur dbt platform, la connexion est portée par l'environnement : aucun profiles.yml
+# n'est versionné. Cette clé n'est utilisée que pour une exécution locale éventuelle.
+profile: wizard_odi_migration
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  wizard_odi_migration:
+    bronze:
+      +schema: bronze
+      +materialized: view
+    silver:
+      +schema: silver
+      +materialized: view
+    gold:
+      +schema: gold
+      +materialized: table
+
+seeds:
+  wizard_odi_migration:
+    +quote_columns: false
+    # Données sources fictives ShopEasy
+    +schema: raw
+    # Tables cibles telles que chargées par ODI (référence de recettage)
+    odi_results:
+      +schema: odi_legacy

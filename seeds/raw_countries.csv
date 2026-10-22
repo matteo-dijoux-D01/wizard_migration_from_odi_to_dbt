@@ -1,0 +1,16 @@
+country_id,country_code,country_name,region
+1,FR,France,Western Europe
+2,DE,Germany ,Western Europe
+3,ES,Spain,Southern Europe
+4,IT,Italy,Southern Europe
+5,GB,UNITED KINGDOM,Northern Europe
+6,BE,Belgium,Western Europe
+7,NL,Netherlands,western europe
+8,CH,Switzerland,Western Europe
+9,PT,Portugal, Southern Europe
+10,IE,Ireland,Northern Europe
+11,US,United States,North America
+12,ca,Canada,North America
+13,SE,Sweden,Northern Europe
+14,PL,Poland,Eastern Europe
+15,AT,Austria,Western Europe

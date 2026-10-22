@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SunopsisExport>
+  <Admin RepositoryVersion="04.00.12.01" ExportDate="2026-06-18T09:42:17" ExportedBy="SUPERVISOR" OdiVersion="12.2.1.4.0" BuildNumber="1" WorkRepository="WORKREP_SHOPEASY" MasterRepository="MASTER_SHOPEASY"/>
+  <Object class="Mapping" id="1003">
+      <Field name="Name" type="java.lang.String"><![CDATA[MAP_FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="Description" type="java.lang.String"><![CDATA[Agrégat des ventes par produit et par mois (volume minimum de 5 unités).]]></Field>
+      <Field name="ProjectCode" type="java.lang.String"><![CDATA[SHOPEASY_DWH]]></Field>
+      <Field name="FolderName" type="java.lang.String"><![CDATA[AGREGATS]]></Field>
+      <Field name="IsTemporary" type="int"><![CDATA[0]]></Field>
+      <Field name="CreatedBy" type="java.lang.String"><![CDATA[SUPERVISOR]]></Field>
+      <Field name="LastUpdateDate" type="java.lang.String"><![CDATA[2026-06-18T09:42:17]]></Field>
+      <Field name="DeploymentSpec" type="java.lang.String"><![CDATA[ODI_STD_MAP_FCT_PRODUCT_MONTHLY_SALES]]></Field>
+    <Object class="DatastoreComponent" id="4001">
+      <Field name="Name" type="java.lang.String"><![CDATA[FCT_ORDER_LINE]]></Field>
+      <Field name="Alias" type="java.lang.String"><![CDATA[FOL]]></Field>
+      <Field name="Model" type="java.lang.String"><![CDATA[DWH_SHOPEASY]]></Field>
+      <Field name="Schema" type="java.lang.String"><![CDATA[SHOPEASY_DWH]]></Field>
+      <Field name="Role" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+      <Field name="BoundObject" type="java.lang.String"><![CDATA[SHOPEASY_DWH.FCT_ORDER_LINE]]></Field>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_LINE_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMER_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[PRODUCT_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_DATE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[DATE]]></Field>
+          <Field name="Length" type="int"><![CDATA[7]]></Field>
+          <Field name="Position" type="int"><![CDATA[5]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_MONTH]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[7]]></Field>
+          <Field name="Position" type="int"><![CDATA[6]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_STATUS]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[20]]></Field>
+          <Field name="Position" type="int"><![CDATA[7]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[QUANTITY]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[5]]></Field>
+          <Field name="Position" type="int"><![CDATA[8]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[UNIT_PRICE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[12]]></Field>
+          <Field name="Position" type="int"><![CDATA[9]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[DISCOUNT_PCT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[5]]></Field>
+          <Field name="Position" type="int"><![CDATA[10]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[NET_AMOUNT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[14]]></Field>
+          <Field name="Position" type="int"><![CDATA[11]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[MARGIN_VS_CATALOG]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[14]]></Field>
+          <Field name="Position" type="int"><![CDATA[12]]></Field>
+        </Object>
+    </Object>
+    <Object class="AggregateComponent" id="4002">
+      <Field name="Name" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH]]></Field>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[PRODUCT_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[FOL.PRODUCT_ID]]></Field>
+          <Field name="IsGroupBy" type="int"><![CDATA[1]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_MONTH]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[FOL.ORDER_MONTH]]></Field>
+          <Field name="IsGroupBy" type="int"><![CDATA[1]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[TOTAL_QUANTITY]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[SUM(FOL.QUANTITY)]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[TOTAL_NET_AMOUNT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[SUM(FOL.NET_AMOUNT)]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_COUNT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[5]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[COUNT(DISTINCT FOL.ORDER_ID)]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[AVG_UNIT_PRICE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[6]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[ROUND(AVG(FOL.UNIT_PRICE), 2)]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+      <Field name="HavingCondition" type="java.lang.String"><![CDATA[SUM(FOL.QUANTITY) >= 5]]></Field>
+      <Field name="ManualGroupByClause" type="int"><![CDATA[0]]></Field>
+    </Object>
+    <Object class="TargetDatastore" id="4003">
+      <Field name="Name" type="java.lang.String"><![CDATA[FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="Model" type="java.lang.String"><![CDATA[DWH_SHOPEASY]]></Field>
+      <Field name="Schema" type="java.lang.String"><![CDATA[SHOPEASY_DWH]]></Field>
+      <Field name="BoundObject" type="java.lang.String"><![CDATA[SHOPEASY_DWH.FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="Role" type="java.lang.String"><![CDATA[TARGET]]></Field>
+      <Field name="IKM" type="java.lang.String"><![CDATA[IKM Oracle Insert]]></Field>
+      <Field name="CKM" type="java.lang.String"><![CDATA[CKM Oracle]]></Field>
+      <Field name="UpdateKey" type="java.lang.String"><![CDATA[PRODUCT_ID,ORDER_MONTH]]></Field>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[PRODUCT_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH.PRODUCT_ID]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[1]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_MONTH]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH.ORDER_MONTH]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[TOTAL_QUANTITY]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH.TOTAL_QUANTITY]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[TOTAL_NET_AMOUNT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH.TOTAL_NET_AMOUNT]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[ORDER_COUNT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[5]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH.ORDER_COUNT]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[AVG_UNIT_PRICE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[6]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH.AVG_UNIT_PRICE]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[INSERT]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[UPDATE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[COMMIT]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[SYNC_JRN_DELETE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[FLOW_CONTROL]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[RECYCLE_ERRORS]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[STATIC_CONTROL]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[TRUNCATE_TARGET_TABLE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[DELETE_TEMPORARY_OBJECTS]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[ANALYZE_TARGET]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[CREATE_TARGET_TABLE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+    </Object>
+    <Object class="ConnectorPoint" id="1">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[FOL]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH]]></Field>
+      <Field name="Order" type="int"><![CDATA[1]]></Field>
+    </Object>
+    <Object class="ConnectorPoint" id="2">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[AGG_PRODUCT_MONTH]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="Order" type="int"><![CDATA[2]]></Field>
+    </Object>
+  </Object>
+</SunopsisExport>
