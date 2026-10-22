@@ -1,0 +1,125 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimension client issue du mapping ODI MAP_DIM_CUSTOMER, au grain d'un email normalisé."
+    columns:
+      - name: customer_id
+        description: "Identifiant du client retenu."
+        data_tests: [unique, not_null]
+      - name: first_name
+        description: "Prénom normalisé du client."
+      - name: last_name
+        description: "Nom normalisé du client."
+      - name: email
+        description: "Email normalisé servant de clé de dédoublonnage."
+        data_tests: [unique, not_null]
+      - name: country_code
+        description: "Code pays normalisé ou XX."
+      - name: country_name
+        description: "Nom de pays normalisé ou UNKNOWN."
+      - name: region
+        description: "Région normalisée ou N/A."
+      - name: signup_date
+        description: "Date d'inscription du client."
+      - name: customer_segment
+        description: "Segment de fidélité dérivé du code source."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['GOLD', 'SILVER', 'BRONZE', 'STANDARD']
+
+  - name: dim_product
+    description: "Dimension produit issue du mapping ODI MAP_DIM_PRODUCT, au grain produit."
+    columns:
+      - name: product_id
+        description: "Identifiant du produit."
+        data_tests: [unique, not_null]
+      - name: sku
+        description: "Référence produit normalisée."
+      - name: product_name
+        description: "Libellé du produit nettoyé."
+      - name: category_code
+        description: "Code de catégorie dérivé de la référence."
+      - name: category_group
+        description: "Regroupement métier de catégorie."
+      - name: catalog_price
+        description: "Prix unitaire catalogue."
+      - name: cost_price
+        description: "Coût unitaire du produit."
+      - name: is_premium_flag
+        description: "Indicateur de produit premium."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Y', 'N']
+
+  - name: fct_order_line
+    description: "Fait ligne de commande issu du mapping ODI MAP_FCT_ORDER_LINE, hors commandes annulées."
+    columns:
+      - name: order_line_id
+        description: "Identifiant unique de la ligne de commande."
+        data_tests: [unique, not_null]
+      - name: order_id
+        description: "Identifiant de la commande."
+      - name: customer_id
+        description: "Identifiant du client de la commande."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+      - name: product_id
+        description: "Identifiant du produit commandé."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+      - name: order_date
+        description: "Date de la commande."
+      - name: order_month
+        description: "Mois de commande au format YYYY-MM."
+      - name: order_status
+        description: "Statut de la commande non annulée."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['NEW', 'SHIPPED', 'RETURNED']
+      - name: quantity
+        description: "Quantité commandée."
+      - name: unit_price
+        description: "Prix unitaire de vente."
+      - name: discount_pct
+        description: "Pourcentage de remise, zéro par défaut."
+      - name: net_amount
+        description: "Montant net de la ligne arrondi à deux décimales."
+      - name: margin_vs_catalog
+        description: "Écart au prix catalogue arrondi à deux décimales."
+
+  - name: fct_product_monthly_sales
+    description: "Agrégat produit-mois issu du mapping ODI MAP_FCT_PRODUCT_MONTHLY_SALES, limité aux groupes d'au moins cinq unités."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['product_id', 'order_month']
+    columns:
+      - name: product_id
+        description: "Identifiant du produit agrégé."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+      - name: order_month
+        description: "Mois de vente au format YYYY-MM."
+        data_tests: [not_null]
+      - name: total_quantity
+        description: "Somme des quantités vendues sur le mois, au moins égale à cinq."
+      - name: total_net_amount
+        description: "Somme des montants nets des lignes du mois."
+      - name: order_count
+        description: "Nombre de commandes distinctes du mois."
+      - name: avg_unit_price
+        description: "Prix unitaire moyen non pondéré, arrondi à deux décimales."

@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: brz_countries
+    description: "Copie typée de la seed raw_countries, sans logique métier."
+    columns:
+      - name: country_id
+        description: "Identifiant technique du pays dans la source."
+      - name: country_code
+        description: "Code pays brut."
+      - name: country_name
+        description: "Nom de pays brut."
+      - name: region
+        description: "Région géographique brute."
+
+  - name: brz_customers
+    description: "Copie typée de la seed raw_customers, sans logique métier."
+    columns:
+      - name: customer_id
+        description: "Identifiant technique du client dans la source."
+      - name: first_name
+        description: "Prénom brut du client."
+      - name: last_name
+        description: "Nom brut du client."
+      - name: email
+        description: "Adresse électronique brute du client."
+      - name: country_id
+        description: "Identifiant du pays déclaré par le client."
+      - name: signup_date
+        description: "Date brute d'inscription du client."
+      - name: loyalty_tier
+        description: "Code brut du niveau de fidélité."
+      - name: last_update_ts
+        description: "Horodatage de dernière mise à jour de l'enregistrement source."
+
+  - name: brz_products
+    description: "Copie typée de la seed raw_products, sans logique métier."
+    columns:
+      - name: product_id
+        description: "Identifiant technique du produit dans la source."
+      - name: sku
+        description: "Référence commerciale brute du produit."
+      - name: product_name
+        description: "Libellé brut du produit."
+      - name: category
+        description: "Catégorie brute du produit."
+      - name: unit_price
+        description: "Prix catalogue unitaire brut."
+      - name: cost_price
+        description: "Coût unitaire brut."
+      - name: created_date
+        description: "Date de création du produit dans la source."
+
+  - name: brz_orders
+    description: "Copie typée de la seed raw_orders, sans logique métier."
+    columns:
+      - name: order_id
+        description: "Identifiant technique de la commande."
+      - name: customer_id
+        description: "Identifiant du client ayant passé la commande."
+      - name: order_ts
+        description: "Horodatage brut de la commande."
+      - name: status
+        description: "Statut brut de la commande."
+      - name: channel
+        description: "Canal brut de prise de commande."
+
+  - name: brz_order_lines
+    description: "Copie typée de la seed raw_order_lines, sans logique métier."
+    columns:
+      - name: order_line_id
+        description: "Identifiant technique de la ligne de commande."
+      - name: order_id
+        description: "Identifiant de la commande parente."
+      - name: product_id
+        description: "Identifiant du produit commandé."
+      - name: quantity
+        description: "Quantité commandée."
+      - name: unit_price
+        description: "Prix unitaire appliqué à la ligne."
+      - name: discount_pct
+        description: "Pourcentage de remise brut, éventuellement nul."

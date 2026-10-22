@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: int_customers
+    description: "Clients nettoyés, enrichis du pays et dédoublonnés par email selon MAP_DIM_CUSTOMER."
+    columns:
+      - name: customer_id
+        description: "Identifiant du client retenu après dédoublonnage."
+      - name: first_name
+        description: "Prénom normalisé en majuscules, UNKNOWN si absent."
+      - name: last_name
+        description: "Nom normalisé en majuscules, UNKNOWN si absent."
+      - name: email
+        description: "Email normalisé en majuscules et sans espaces périphériques."
+      - name: country_code
+        description: "Code pays normalisé, XX si le pays est inconnu."
+      - name: country_name
+        description: "Nom du pays normalisé, UNKNOWN si le pays est inconnu."
+      - name: region
+        description: "Région normalisée, N/A si le pays est inconnu."
+      - name: signup_date
+        description: "Date d'inscription, limitée aux dates non futures."
+      - name: customer_segment
+        description: "Segment dérivé du niveau de fidélité ODI."
+
+  - name: int_products
+    description: "Produits nettoyés et classés selon les règles de MAP_DIM_PRODUCT."
+    columns:
+      - name: product_id
+        description: "Identifiant du produit."
+      - name: sku
+        description: "Référence produit normalisée en majuscules."
+      - name: product_name
+        description: "Libellé produit sans espaces périphériques."
+      - name: category_code
+        description: "Trois premiers caractères de la référence normalisée."
+      - name: category_group
+        description: "Regroupement métier de la catégorie produit."
+      - name: catalog_price
+        description: "Prix unitaire catalogue."
+      - name: cost_price
+        description: "Coût unitaire du produit."
+      - name: is_premium_flag
+        description: "Indicateur Y si le prix catalogue est supérieur ou égal à 200, sinon N."
+
+  - name: int_order_lines
+    description: "Lignes de commandes non annulées enrichies et calculées selon MAP_FCT_ORDER_LINE."
+    columns:
+      - name: order_line_id
+        description: "Identifiant unique de la ligne de commande."
+      - name: order_id
+        description: "Identifiant de la commande."
+      - name: customer_id
+        description: "Identifiant du client porté par la commande."
+      - name: product_id
+        description: "Identifiant du produit commandé."
+      - name: order_date
+        description: "Date de la commande, sans composante horaire."
+      - name: order_month
+        description: "Mois de commande au format YYYY-MM."
+      - name: order_status
+        description: "Statut de la commande non annulée."
+      - name: quantity
+        description: "Quantité commandée."
+      - name: unit_price
+        description: "Prix unitaire appliqué à la ligne."
+      - name: discount_pct
+        description: "Pourcentage de remise, remplacé par zéro s'il est absent."
+      - name: net_amount
+        description: "Montant net arrondi à deux décimales après remise."
+      - name: margin_vs_catalog
+        description: "Écart arrondi entre le montant net et le prix catalogue multiplié par la quantité."
