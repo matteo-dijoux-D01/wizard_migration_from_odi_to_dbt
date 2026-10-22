@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SunopsisExport>
+  <Admin RepositoryVersion="04.00.12.01" ExportDate="2026-06-18T09:42:17" ExportedBy="SUPERVISOR" OdiVersion="12.2.1.4.0" BuildNumber="1" WorkRepository="WORKREP_SHOPEASY" MasterRepository="MASTER_SHOPEASY"/>
+  <Object class="Package" id="9001">
+      <Field name="Name" type="java.lang.String"><![CDATA[PKG_DAILY_LOAD]]></Field>
+      <Field name="Description" type="java.lang.String"><![CDATA[Chargement quotidien ShopEasy : dimensions, puis fait, puis agrégat.]]></Field>
+      <Field name="ProjectCode" type="java.lang.String"><![CDATA[SHOPEASY_DWH]]></Field>
+      <Field name="FolderName" type="java.lang.String"><![CDATA[ORCHESTRATION]]></Field>
+      <Field name="FirstStep" type="java.lang.String"><![CDATA[STEP_DIM_CUSTOMER]]></Field>
+      <Field name="ScheduleDescription" type="java.lang.String"><![CDATA[Tous les jours à 02:00 (Europe/Paris)]]></Field>
+      <Field name="LastUpdateDate" type="java.lang.String"><![CDATA[2026-06-18T09:42:17]]></Field>
+    <Object class="Step" id="9101">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_DIM_CUSTOMER]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[Mapping]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[1]]></Field>
+      <Field name="ObjectName" type="java.lang.String"><![CDATA[MAP_DIM_CUSTOMER]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[STEP_DIM_PRODUCT]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[STEP_ERR_LOG]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[1]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+    <Object class="Step" id="9102">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_DIM_PRODUCT]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[Mapping]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[2]]></Field>
+      <Field name="ObjectName" type="java.lang.String"><![CDATA[MAP_DIM_PRODUCT]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[STEP_FCT_ORDER_LINE]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[STEP_ERR_LOG]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[1]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+    <Object class="Step" id="9103">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_FCT_ORDER_LINE]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[Mapping]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[3]]></Field>
+      <Field name="ObjectName" type="java.lang.String"><![CDATA[MAP_FCT_ORDER_LINE]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[STEP_FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[STEP_ERR_LOG]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[1]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+    <Object class="Step" id="9104">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[Mapping]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[4]]></Field>
+      <Field name="ObjectName" type="java.lang.String"><![CDATA[MAP_FCT_PRODUCT_MONTHLY_SALES]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[STEP_LOG_SUCCESS]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[STEP_ERR_LOG]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[1]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+    <Object class="Step" id="9105">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_LOG_SUCCESS]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[Procedure]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[5]]></Field>
+      <Field name="ObjectName" type="java.lang.String"><![CDATA[PRC_LOG_RUN_STATUS]]></Field>
+      <Field name="Parameter.STATUS" type="java.lang.String"><![CDATA[SUCCESS]]></Field>
+      <Field name="Parameter.PACKAGE_NAME" type="java.lang.String"><![CDATA[PKG_DAILY_LOAD]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[STEP_ERR_LOG]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[0]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+    <Object class="Step" id="9106">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_ERR_LOG]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[Procedure]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[6]]></Field>
+      <Field name="ObjectName" type="java.lang.String"><![CDATA[PRC_LOG_RUN_STATUS]]></Field>
+      <Field name="Parameter.STATUS" type="java.lang.String"><![CDATA[ERROR]]></Field>
+      <Field name="Parameter.PACKAGE_NAME" type="java.lang.String"><![CDATA[PKG_DAILY_LOAD]]></Field>
+      <Field name="Parameter.MESSAGE" type="java.lang.String"><![CDATA[#SHOPEASY_DWH.ODI_SESSION_ERROR_MESSAGE]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[STEP_ERR_MAIL]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[0]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+    <Object class="Step" id="9107">
+      <Field name="Name" type="java.lang.String"><![CDATA[STEP_ERR_MAIL]]></Field>
+      <Field name="StepType" type="java.lang.String"><![CDATA[OdiSendMail]]></Field>
+      <Field name="StepOrder" type="int"><![CDATA[7]]></Field>
+      <Field name="Mail.To" type="java.lang.String"><![CDATA[dwh-support@shopeasy.example]]></Field>
+      <Field name="Mail.Subject" type="java.lang.String"><![CDATA[Echec du chargement quotidien PKG_DAILY_LOAD]]></Field>
+      <Field name="Mail.Message" type="java.lang.String"><![CDATA[Session ODI en erreur : voir l'opérateur ODI pour le détail.]]></Field>
+      <Field name="NextStepOnSuccess" type="java.lang.String"><![CDATA[]]></Field>
+      <Field name="NextStepOnFailure" type="java.lang.String"><![CDATA[]]></Field>
+      <Field name="RetryCount" type="int"><![CDATA[0]]></Field>
+      <Field name="RetryDelaySeconds" type="int"><![CDATA[60]]></Field>
+    </Object>
+  </Object>
+</SunopsisExport>

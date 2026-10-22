@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SunopsisExport>
+  <Admin RepositoryVersion="04.00.12.01" ExportDate="2026-06-18T09:42:17" ExportedBy="SUPERVISOR" OdiVersion="12.2.1.4.0" BuildNumber="1" WorkRepository="WORKREP_SHOPEASY" MasterRepository="MASTER_SHOPEASY"/>
+  <Object class="Mapping" id="1001">
+      <Field name="Name" type="java.lang.String"><![CDATA[MAP_DIM_CUSTOMER]]></Field>
+      <Field name="Description" type="java.lang.String"><![CDATA[Chargement de la dimension client : nettoyage, une ligne par email, segment fidélité.]]></Field>
+      <Field name="ProjectCode" type="java.lang.String"><![CDATA[SHOPEASY_DWH]]></Field>
+      <Field name="FolderName" type="java.lang.String"><![CDATA[DIMENSIONS]]></Field>
+      <Field name="IsTemporary" type="int"><![CDATA[0]]></Field>
+      <Field name="CreatedBy" type="java.lang.String"><![CDATA[SUPERVISOR]]></Field>
+      <Field name="LastUpdateDate" type="java.lang.String"><![CDATA[2026-06-18T09:42:17]]></Field>
+      <Field name="DeploymentSpec" type="java.lang.String"><![CDATA[ODI_STD_MAP_DIM_CUSTOMER]]></Field>
+    <Object class="DatastoreComponent" id="2001">
+      <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMERS]]></Field>
+      <Field name="Alias" type="java.lang.String"><![CDATA[CUSTOMERS]]></Field>
+      <Field name="Model" type="java.lang.String"><![CDATA[SRC_SHOPEASY]]></Field>
+      <Field name="Schema" type="java.lang.String"><![CDATA[SHOPEASY_SRC]]></Field>
+      <Field name="Role" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+      <Field name="BoundObject" type="java.lang.String"><![CDATA[SHOPEASY_SRC.CUSTOMERS]]></Field>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMER_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[FIRST_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[100]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[LAST_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[100]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[EMAIL]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[255]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[5]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[SIGNUP_DATE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[DATE]]></Field>
+          <Field name="Length" type="int"><![CDATA[7]]></Field>
+          <Field name="Position" type="int"><![CDATA[6]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[LOYALTY_TIER]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[7]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[LAST_UPDATE_TS]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[TIMESTAMP]]></Field>
+          <Field name="Length" type="int"><![CDATA[11]]></Field>
+          <Field name="Position" type="int"><![CDATA[8]]></Field>
+        </Object>
+    </Object>
+    <Object class="DatastoreComponent" id="2002">
+      <Field name="Name" type="java.lang.String"><![CDATA[COUNTRIES]]></Field>
+      <Field name="Alias" type="java.lang.String"><![CDATA[COUNTRIES]]></Field>
+      <Field name="Model" type="java.lang.String"><![CDATA[SRC_SHOPEASY]]></Field>
+      <Field name="Schema" type="java.lang.String"><![CDATA[SHOPEASY_SRC]]></Field>
+      <Field name="Role" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+      <Field name="BoundObject" type="java.lang.String"><![CDATA[SHOPEASY_SRC.COUNTRIES]]></Field>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Length" type="int"><![CDATA[10]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_CODE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[2]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[100]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[REGION]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Length" type="int"><![CDATA[100]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+        </Object>
+    </Object>
+    <Object class="JoinComponent" id="2003">
+      <Field name="Name" type="java.lang.String"><![CDATA[JOIN_CUST_COUNTRY]]></Field>
+      <Field name="JoinType" type="java.lang.String"><![CDATA[LEFT OUTER]]></Field>
+      <Field name="JoinCondition" type="java.lang.String"><![CDATA[CUSTOMERS.COUNTRY_ID = COUNTRIES.COUNTRY_ID]]></Field>
+      <Field name="LeftInput" type="java.lang.String"><![CDATA[CUSTOMERS]]></Field>
+      <Field name="RightInput" type="java.lang.String"><![CDATA[COUNTRIES]]></Field>
+      <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+      <Field name="IsAutoCondition" type="int"><![CDATA[0]]></Field>
+    </Object>
+    <Object class="ExpressionComponent" id="2004">
+      <Field name="Name" type="java.lang.String"><![CDATA[EXP_CLEAN]]></Field>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMER_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[CUSTOMERS.CUSTOMER_ID]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[FIRST_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[NVL(UPPER(TRIM(CUSTOMERS.FIRST_NAME)), 'UNKNOWN')]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[LAST_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[NVL(UPPER(TRIM(CUSTOMERS.LAST_NAME)), 'UNKNOWN')]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[EMAIL]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[UPPER(TRIM(CUSTOMERS.EMAIL))]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_CODE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[5]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[NVL(UPPER(TRIM(COUNTRIES.COUNTRY_CODE)), 'XX')]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[6]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[NVL(UPPER(TRIM(COUNTRIES.COUNTRY_NAME)), 'UNKNOWN')]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[REGION]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[7]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[NVL(UPPER(TRIM(COUNTRIES.REGION)), 'N/A')]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[SIGNUP_DATE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[DATE]]></Field>
+          <Field name="Position" type="int"><![CDATA[8]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[CUSTOMERS.SIGNUP_DATE]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMER_SEGMENT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[9]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[DECODE(UPPER(TRIM(CUSTOMERS.LOYALTY_TIER)), 'A', 'GOLD', 'B', 'SILVER', 'C', 'BRONZE', 'STANDARD')]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[SOURCE]]></Field>
+        </Object>
+        <Object class="Attribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[RN]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[10]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[ROW_NUMBER() OVER (PARTITION BY UPPER(TRIM(CUSTOMERS.EMAIL)) ORDER BY CUSTOMERS.LAST_UPDATE_TS DESC, CUSTOMERS.CUSTOMER_ID DESC)]]></Field>
+          <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[STAGING]]></Field>
+        </Object>
+    </Object>
+    <Object class="FilterComponent" id="2005">
+      <Field name="Name" type="java.lang.String"><![CDATA[FLT_LATEST_PER_EMAIL]]></Field>
+      <Field name="FilterCondition" type="java.lang.String"><![CDATA[EXP_CLEAN.RN = 1 AND EXP_CLEAN.SIGNUP_DATE <= SYSDATE]]></Field>
+      <Field name="ExecuteOnHint" type="java.lang.String"><![CDATA[STAGING]]></Field>
+    </Object>
+    <Object class="TargetDatastore" id="2006">
+      <Field name="Name" type="java.lang.String"><![CDATA[DIM_CUSTOMER]]></Field>
+      <Field name="Model" type="java.lang.String"><![CDATA[DWH_SHOPEASY]]></Field>
+      <Field name="Schema" type="java.lang.String"><![CDATA[SHOPEASY_DWH]]></Field>
+      <Field name="BoundObject" type="java.lang.String"><![CDATA[SHOPEASY_DWH.DIM_CUSTOMER]]></Field>
+      <Field name="Role" type="java.lang.String"><![CDATA[TARGET]]></Field>
+      <Field name="IKM" type="java.lang.String"><![CDATA[IKM Oracle Incremental Update]]></Field>
+      <Field name="CKM" type="java.lang.String"><![CDATA[CKM Oracle]]></Field>
+      <Field name="UpdateKey" type="java.lang.String"><![CDATA[CUSTOMER_ID]]></Field>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMER_ID]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[NUMBER]]></Field>
+          <Field name="Position" type="int"><![CDATA[1]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.CUSTOMER_ID]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[1]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[FIRST_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[2]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.FIRST_NAME]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[LAST_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[3]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.LAST_NAME]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[EMAIL]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[4]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.EMAIL]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_CODE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[5]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.COUNTRY_CODE]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[COUNTRY_NAME]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[6]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.COUNTRY_NAME]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[REGION]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[7]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.REGION]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[SIGNUP_DATE]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[DATE]]></Field>
+          <Field name="Position" type="int"><![CDATA[8]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.SIGNUP_DATE]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="TargetAttribute">
+          <Field name="Name" type="java.lang.String"><![CDATA[CUSTOMER_SEGMENT]]></Field>
+          <Field name="DataType" type="java.lang.String"><![CDATA[VARCHAR2]]></Field>
+          <Field name="Position" type="int"><![CDATA[9]]></Field>
+          <Field name="Expression" type="java.lang.String"><![CDATA[EXP_CLEAN.CUSTOMER_SEGMENT]]></Field>
+          <Field name="KeyAttribute" type="int"><![CDATA[0]]></Field>
+          <Field name="InsertIndicator" type="int"><![CDATA[1]]></Field>
+          <Field name="UpdateIndicator" type="int"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[INSERT]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[UPDATE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[COMMIT]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[SYNC_JRN_DELETE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[FLOW_CONTROL]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[RECYCLE_ERRORS]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[STATIC_CONTROL]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[TRUNCATE_TARGET_TABLE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[DELETE_TEMPORARY_OBJECTS]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[ANALYZE_TARGET]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[1]]></Field>
+        </Object>
+        <Object class="IntegrationProperty">
+          <Field name="Name" type="java.lang.String"><![CDATA[CREATE_TARGET_TABLE]]></Field>
+          <Field name="Value" type="java.lang.String"><![CDATA[0]]></Field>
+        </Object>
+    </Object>
+    <Object class="ConnectorPoint" id="1">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[CUSTOMERS]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[JOIN_CUST_COUNTRY]]></Field>
+      <Field name="Order" type="int"><![CDATA[1]]></Field>
+    </Object>
+    <Object class="ConnectorPoint" id="2">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[COUNTRIES]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[JOIN_CUST_COUNTRY]]></Field>
+      <Field name="Order" type="int"><![CDATA[2]]></Field>
+    </Object>
+    <Object class="ConnectorPoint" id="3">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[JOIN_CUST_COUNTRY]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[EXP_CLEAN]]></Field>
+      <Field name="Order" type="int"><![CDATA[3]]></Field>
+    </Object>
+    <Object class="ConnectorPoint" id="4">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[EXP_CLEAN]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[FLT_LATEST_PER_EMAIL]]></Field>
+      <Field name="Order" type="int"><![CDATA[4]]></Field>
+    </Object>
+    <Object class="ConnectorPoint" id="5">
+      <Field name="FromComponent" type="java.lang.String"><![CDATA[FLT_LATEST_PER_EMAIL]]></Field>
+      <Field name="ToComponent" type="java.lang.String"><![CDATA[DIM_CUSTOMER]]></Field>
+      <Field name="Order" type="int"><![CDATA[5]]></Field>
+    </Object>
+  </Object>
+</SunopsisExport>

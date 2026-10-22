@@ -1,0 +1,97 @@
+version: 2
+
+# Types de colonnes des seeds (varchar(n) : syntaxe Snowflake, Postgres, Redshift, Databricks ;
+# à remplacer par string sur BigQuery).
+seeds:
+  - name: raw_countries
+    config:
+      column_types:
+        country_id: integer
+        country_code: varchar(10)
+        country_name: varchar(255)
+        region: varchar(255)
+  - name: raw_customers
+    config:
+      column_types:
+        customer_id: integer
+        first_name: varchar(255)
+        last_name: varchar(255)
+        email: varchar(255)
+        country_id: integer
+        signup_date: date
+        loyalty_tier: varchar(10)
+        last_update_ts: timestamp
+  - name: raw_products
+    config:
+      column_types:
+        product_id: integer
+        sku: varchar(30)
+        product_name: varchar(255)
+        category: varchar(255)
+        unit_price: numeric(12,2)
+        cost_price: numeric(12,2)
+        created_date: date
+  - name: raw_orders
+    config:
+      column_types:
+        order_id: integer
+        customer_id: integer
+        order_ts: timestamp
+        status: varchar(30)
+        channel: varchar(30)
+  - name: raw_order_lines
+    config:
+      column_types:
+        order_line_id: integer
+        order_id: integer
+        product_id: integer
+        quantity: integer
+        unit_price: numeric(12,2)
+        discount_pct: numeric(12,2)
+  - name: odi_target_dim_customer
+    config:
+      column_types:
+        customer_id: integer
+        first_name: varchar(255)
+        last_name: varchar(255)
+        email: varchar(255)
+        country_code: varchar(10)
+        country_name: varchar(255)
+        region: varchar(255)
+        signup_date: date
+        customer_segment: varchar(30)
+  - name: odi_target_dim_product
+    config:
+      column_types:
+        product_id: integer
+        sku: varchar(30)
+        product_name: varchar(255)
+        category_code: varchar(10)
+        category_group: varchar(30)
+        catalog_price: numeric(12,2)
+        cost_price: numeric(12,2)
+        is_premium_flag: varchar(1)
+  - name: odi_target_fct_order_line
+    config:
+      column_types:
+        order_line_id: integer
+        order_id: integer
+        customer_id: integer
+        product_id: integer
+        order_date: date
+        order_month: varchar(7)
+        order_status: varchar(30)
+        quantity: integer
+        unit_price: numeric(12,2)
+        discount_pct: numeric(12,2)
+        net_amount: numeric(14,2)
+        margin_vs_catalog: numeric(14,2)
+  - name: odi_target_fct_product_monthly_sales
+    config:
+      column_types:
+        product_id: integer
+        order_month: varchar(7)
+        total_quantity: integer
+        total_net_amount: numeric(16,2)
+        order_count: integer
+        avg_unit_price: numeric(12,2)
